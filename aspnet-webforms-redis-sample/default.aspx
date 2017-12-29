@@ -9,7 +9,7 @@ body, html {
 }
 
 .hero-image {
-  background-image: url('https://regmedia.co.uk/2017/09/11/shutterstock_containers_in_port.jpg?x=1200&y=794');
+  background-image: url('https://cdn-images-1.medium.com/max/1600/1*5JCk7-_BhV99r3g5PvQWmQ.jpeg');
   height: 50%;
   background-position: center;
   background-repeat: no-repeat;
@@ -49,10 +49,11 @@ body, html {
         <div class="hero-image">
           
            <div class="hero-text">
-             <h1 style="font-size:50px">ASP.NET Redis Sample</h1>
+             <h1 style="font-size:50px">ASP.NET Sample</h1>
             <p></p>
              <h2>Machine Name: <asp:Label ID="ServerName" runat="server"></asp:Label></h2>
-            <h2>Counter: <asp:Label ID="Counter" runat="server"></asp:Label></h2>
+             <h2>Counter: <asp:Label ID="Counter" runat="server"></asp:Label></h2>
+                <button>Hit Refresh</button>
            </div>
            
         </div>
@@ -62,7 +63,7 @@ body, html {
   
 </div>
 
-<p>Page Content..</p>
+
                            </body>
 
                </html>
