@@ -1,0 +1,65 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: aspnet-redis
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: aspnet-redis
+    spec:
+      containers:
+      - image: anthonychu/aspnet-webforms-redis-sample:latest
+        imagePullPolicy: Always
+        name: aspnet-redis
+        ports:
+        - containerPort: 80
+        env:
+        - name: REDIS_HOST
+          value: redis.default.svc.cluster.local
+        readinessProbe:
+          httpGet:
+            path: /healthz.aspx
+            port: 80
+          initialDelaySeconds: 3
+          periodSeconds: 3
+      nodeSelector:
+        beta.kubernetes.io/os: windows
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: aspnet-redis-service
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+    protocol: TCP
+  selector:
+    app: aspnet-redis
+
+---
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: aspnet-redis-service
+  annotations:
+    kubernetes.io/tls-acme: "true"
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  tls:
+  - hosts:
+    - HOSTNAME
+    secretName: aspnet-redis-service-tls
+  rules:
+  - host: HOSTNAME
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: aspnet-redis-service
+          servicePort: 80
