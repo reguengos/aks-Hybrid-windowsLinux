@@ -26,9 +26,9 @@ namespace aspnet_webforms_redis_sample
 
         protected void Page_Load(object sender, EventArgs e)
         {
-         //   var database = redis.Value.GetDatabase();
-        //    //Counter.Text = database.StringIncrement("counter").ToString();
-         //   ServerName.Text = Dns.GetHostName();
+           var database = redis.Value.GetDatabase();
+           Counter.Text = database.StringIncrement("counter").ToString();
+           ServerName.Text = Dns.GetHostName();
         }
     }
 }
