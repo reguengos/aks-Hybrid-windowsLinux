@@ -10,7 +10,7 @@ spec:
         app: aspnet-redis
     spec:
       containers:
-      - image: anthonychu/aspnet-webforms-redis-sample:latest
+      - image: reguengos/aspnet-webforms-redis-sample:latest
         imagePullPolicy: Always
         name: aspnet-redis
         ports:
