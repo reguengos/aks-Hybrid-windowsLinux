@@ -10,14 +10,19 @@ body, html {
 
 .hero-image {
   background-image: url('https://cdn-images-1.medium.com/max/1600/1*5JCk7-_BhV99r3g5PvQWmQ.jpeg');
-  height: 50%;
+  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
             top: 0px;
             left: 0px;
-        }
+     
+   }
+
+h1 {
+background-color:rgba(0, 0, 0, 0.35);
+}
 
 .hero-text {
   text-align: center;
@@ -26,7 +31,11 @@ body, html {
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
+
+
 }
+
+
 
 .hero-text button {
   border: none;
@@ -37,7 +46,9 @@ body, html {
   background-color: #ddd;
   text-align: center;
   cursor: pointer;
+
 }
+
 
 .hero-text button:hover {
   background-color: #555;
@@ -47,10 +58,9 @@ body, html {
     <body>
         <form id="form1" runat="server" >
         <div class="hero-image">
-          
-           <div class="hero-text">
+<div class="hero-text">
              <h1 style="font-size:50px">ASP.NET Sample</h1>
-            <p></p>
+    
              <h2>Machine Name: <asp:Label ID="ServerName" runat="server"></asp:Label></h2>
              <h2>Counter: <asp:Label ID="Counter" runat="server"></asp:Label></h2>
                 <button>Hit Refresh</button>
@@ -59,10 +69,7 @@ body, html {
         </div>
     </form>
        
-        <div class="hero-image">
-  
-</div>
-
+       
 
                            </body>
 
