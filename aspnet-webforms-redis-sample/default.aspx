@@ -9,7 +9,7 @@ body, html {
 }
 
 .hero-image {
-  background-image: url('https://cdn-images-1.medium.com/max/1600/1*5JCk7-_BhV99r3g5PvQWmQ.jpeg');
+  background-image: url('http://cdn-images-1.medium.com/max/1600/1*5JCk7-_BhV99r3g5PvQWmQ.jpeg');
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;

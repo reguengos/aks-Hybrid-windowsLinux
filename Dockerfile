@@ -1,15 +1,15 @@
-FROM microsoft/aspnet:4.7.1-windowsservercore-1709
-SHELL ["powershell", "-command"]
+#FROM microsoft/aspnet:4.7.1-windowsservercore-1709
+#SHELL ["powershell", "-command"]
 
 #RUN Install-WindowsFeature NET-Framework-45-ASPNET ; \
  #   Install-WindowsFeature Web-Asp-Net45
 
-RUN mkdir C:\site
-COPY . C:\site
+#RUN mkdir C:\site
+#COPY . C:\site
 
-RUN Remove-WebSite -Name 'Default Web Site'
-RUN New-Website -Name 'myapp' -Port 80 \
-    -PhysicalPath 'C:\site' -ApplicationPool '.NET v4.5'
+#RUN Remove-WebSite -Name 'Default Web Site'
+#RUN New-Website -Name 'myapp' -Port 80 \
+#    -PhysicalPath 'C:\site' -ApplicationPool '.NET v4.5'
 
 #RUN Powershell Remove-Item "C:\inetpub\wwwroot" -recurse
 
@@ -18,4 +18,8 @@ RUN New-Website -Name 'myapp' -Port 80 \
 #RUN dism /online /enable-feature /featurename:IIS-ASPNET45
 
 
-EXPOSE 80
+#EXPOSE 80
+
+FROM microsoft/aspnet:4.7.1-windowsservercore-1709
+WORKDIR /inetpub/wwwroot
+COPY . .

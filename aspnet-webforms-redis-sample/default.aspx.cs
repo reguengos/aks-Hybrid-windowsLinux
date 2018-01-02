@@ -14,21 +14,30 @@ namespace aspnet_webforms_redis_sample
         private static readonly Lazy<ConnectionMultiplexer> redis =
            new Lazy<ConnectionMultiplexer>(() =>
            {
-                var host = 
-                    Environment.GetEnvironmentVariable("REDIS_HOST", EnvironmentVariableTarget.Process) ??
-                    Environment.GetEnvironmentVariable("REDIS_HOST", EnvironmentVariableTarget.Machine);
-                return ConnectionMultiplexer.Connect(new ConfigurationOptions
-                {
-                    AbortOnConnectFail = false,
-                    EndPoints = { host }
-                });
+               var host =
+                   Environment.GetEnvironmentVariable("REDIS_HOST", EnvironmentVariableTarget.Process) ??
+                   Environment.GetEnvironmentVariable("REDIS_HOST", EnvironmentVariableTarget.Machine);
+               return ConnectionMultiplexer.Connect(new ConfigurationOptions
+               {
+                   AbortOnConnectFail = false,
+                   EndPoints = { host }
+               });
            });
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           var database = redis.Value.GetDatabase();
-           Counter.Text = database.StringIncrement("counter").ToString();
-           ServerName.Text = Dns.GetHostName();
+            try
+            {
+                var database = redis.Value.GetDatabase();
+                ServerName.Text = Dns.GetHostName();
+                Counter.Text = database.StringIncrement("counter").ToString();
+
+            }
+            catch (Exception ex)
+            {
+                Counter.Text = "Error while accessing Redis";
+                ServerName.Text = Dns.GetHostName();
+            }
         }
     }
 }
