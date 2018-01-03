@@ -1,18 +1,18 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: aspnet-redis
+  name: aspnet-w-redis
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: aspnet-redis
+        app: aspnet-w-redis
     spec:
       containers:
-      - image: reguengos/aspnet-webforms-redis-sample:latest
+      - image: reguengos/asp4.6.1:latest
         imagePullPolicy: Always
-        name: aspnet-redis
+        name: aspnet-w-redis
         ports:
         - containerPort: 80
         env:
@@ -32,21 +32,21 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: aspnet-redis-service
+  name: aspnet-w-redis-service
 spec:
   ports:
   - port: 80
     targetPort: 80
     protocol: TCP
   selector:
-    app: aspnet-redis
+    app: aspnet-w-redis
 
 ---
 
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: aspnet-redis-service
+  name: aspnet461-redis-service
   annotations:
     kubernetes.io/tls-acme: "true"
     kubernetes.io/ingress.class: "nginx"
@@ -54,12 +54,12 @@ spec:
   tls:
   - hosts:
     - HOSTNAME
-    secretName: aspnet-redis-service-tls
+    secretName: aspnet461-redis-service-tls
   rules:
   - host: HOSTNAME
     http:
       paths:
       - path: /
         backend:
-          serviceName: aspnet-redis-service
+          serviceName: aspnet-w-redis-service
           servicePort: 80
