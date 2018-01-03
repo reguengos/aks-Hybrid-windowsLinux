@@ -35,7 +35,7 @@ namespace aspnet_webforms_redis_sample
             }
             catch (Exception ex)
             {
-                Counter.Text = "Error while accessing Redis";
+                Counter.Text = "Redis Not Available!";
                 ServerName.Text = Dns.GetHostName();
             }
         }

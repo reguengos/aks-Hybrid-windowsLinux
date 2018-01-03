@@ -1,0 +1,8 @@
+version: '2.1'
+
+services:
+  aspnet-webforms-redis-sample:
+    image: aspnet-webforms-redis-sample
+    build:
+      context: .\aspnet-webforms-redis-sample
+      dockerfile: Dockerfile

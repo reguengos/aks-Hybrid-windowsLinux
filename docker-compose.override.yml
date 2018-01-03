@@ -1,0 +1,10 @@
+version: '2.1'
+
+services:
+  aspnet-webforms-redis-sample:
+    ports:
+      - "80"
+networks:
+  default:
+    external:
+      name: nat
