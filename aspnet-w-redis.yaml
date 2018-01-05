@@ -54,7 +54,7 @@ spec:
   tls:
   - hosts:
     - HOSTNAME
-    secretName: aspnet461-redis-service-tls
+    secretName: aspnet-redis-service-tls
   rules:
   - host: HOSTNAME
     http:

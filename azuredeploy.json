@@ -190,19 +190,19 @@
         "dnsPrefix": "[variables('dnsPrefix')]",
         "agentPoolProfiles": [
           {
-            "name": "winagentpool",
-            "osDiskSizeGB": "[variables('osDiskSizeGB')]",
-            "count": "[variables('agentCount')]",
-            "vmSize": "[variables('agentVMSize')]",
-            "osType": "Windows",
-            "storageProfile": "ManagedDisks"
-          },
-          {
             "name": "ixagentpool",
             "osDiskSizeGB": "[variables('osDiskSizeGB')]",
             "count": "[variables('agentCount')]",
             "vmSize": "[variables('agentVMSize')]",
             "osType": "Linux",
+            "storageProfile": "ManagedDisks"
+          },
+          {
+            "name": "winagentpool",
+            "osDiskSizeGB": "[variables('osDiskSizeGB')]",
+            "count": "[variables('agentCount')]",
+            "vmSize": "[variables('agentVMSize')]",
+            "osType": "Windows",
             "storageProfile": "ManagedDisks"
           }
         ],
