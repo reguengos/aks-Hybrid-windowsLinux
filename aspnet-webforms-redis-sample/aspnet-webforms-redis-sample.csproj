@@ -89,6 +89,7 @@
     <Content Include="Global.asax" />
     <Content Include="healthz.aspx" />
     <Content Include="Images\helm.jpeg" />
+    <Content Include="Images\kub.PNG" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

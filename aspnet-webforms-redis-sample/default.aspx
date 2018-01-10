@@ -50,6 +50,9 @@ html, body {  width:100%; height:100%
 h1 {
 background-color:rgba(0, 0, 0, 0.35);
 }
+h2 {
+background-color:rgba(0, 0, 0, 0.35);
+}
 
 </style>
 </head>
@@ -61,10 +64,10 @@ background-color:rgba(0, 0, 0, 0.35);
     
              <h2>Machine Name: <asp:Label ID="ServerName" runat="server"></asp:Label></h2>
              <h2>Counter: <asp:Label ID="Counter" runat="server"></asp:Label></h2>
-                <button>Hit Refresh</button>
+             <asp:Button ID="Button1" runat="server" Text="Hit Refresh" />
+        <p></p>
+         <img alt="" src="images/kub.png" />
         
-
-
   </div>
   
  </div>
